@@ -15,6 +15,7 @@ const corsOptions = {
   origin: keys.CLIENT_ORIGIN,
   credentials: true,
   httpOnly: false,
+  domain: "riverdi-test.vercel.app",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
