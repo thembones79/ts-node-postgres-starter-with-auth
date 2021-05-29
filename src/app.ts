@@ -14,6 +14,7 @@ import { NotFoundError } from "./errors";
 const corsOptions = {
   origin: keys.CLIENT_ORIGIN,
   credentials: true,
+  httpOnly: false,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
