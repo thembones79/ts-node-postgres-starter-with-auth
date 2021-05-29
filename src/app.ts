@@ -36,8 +36,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(
   cookieSession({
-    signed: false,
-    secure: false,
+    signed: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV === "production",
   })
 );
 app.use(currentUser);
