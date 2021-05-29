@@ -8,10 +8,11 @@ import cookieSession from "cookie-session";
 
 import { router } from "./routes";
 import { errorHandler, currentUser } from "./middlewares";
+import { keys } from "./config/keys";
 import { NotFoundError } from "./errors";
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: keys.CLIENT_ORIGIN,
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };

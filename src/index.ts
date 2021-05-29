@@ -1,14 +1,17 @@
 import { app } from "./app";
 import { pool } from "./pool";
+import { keys } from "./config/keys";
+
+const { PGHOST, PGPORT, PGDATABASE, PGUSER, PGPASSWORD } = keys;
 
 const start = async () => {
   try {
     await pool.connect({
-      host: "localhost",
-      port: parseInt("5432"),
-      database: "starter",
-      user: "michal",
-      password: "",
+      host: PGHOST,
+      port: parseInt(PGPORT),
+      database: PGDATABASE,
+      user: PGUSER,
+      password: PGPASSWORD,
     });
     const res = await pool.query("SELECT $1::text as name", ["PostgreSQL"]);
     console.info(`Connected to ${res?.rows[0].name} 🎉`);

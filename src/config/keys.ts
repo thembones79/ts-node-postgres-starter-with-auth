@@ -1,6 +1,11 @@
 export interface IKeys {
-  DB_CONNECTION_STRING: string;
   JWT_SECRET: string;
+  CLIENT_ORIGIN: string;
+  PGHOST: string;
+  PGPORT: string;
+  PGDATABASE: string;
+  PGUSER: string;
+  PGPASSWORD: string;
 }
 
 let keys: IKeys;
