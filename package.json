@@ -8,10 +8,10 @@
     "npm": "7.14.0"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node build/index.js",
+    "xbuild": "tsc",
+    "xstart": "node build/index.js",
     "migrate": "node-pg-migrate",
-    "dev": "ts-node-dev --poll src/index.ts",
+    "start": "ts-node-dev --poll src/index.ts",
     "test": "jest --watchAll --no-cache",
     "test:ci": "jest"
   },
