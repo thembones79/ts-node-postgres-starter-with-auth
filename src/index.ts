@@ -19,11 +19,11 @@ const startDB = async () => {
   } catch (error) {
     console.error(error);
   }
-};
 
-const PORT = process.env.PORT || 3090;
-app.listen(PORT, () => {
-  console.info(`Listening on port ${PORT}...`);
-});
+  const PORT = process.env.PORT || 3090;
+  app.listen(PORT, () => {
+    console.info(`Listening on port ${PORT}...`);
+  });
+};
 
 startDB();

@@ -22,7 +22,7 @@ app.set("trust proxy", true);
 app.use(morgan("combined"));
 app.use(helmet());
 app.use(cors(corsOptions));
-
+console.log({ corsOptions });
 app.use(json({ type: "*/*" }));
 
 // force forwarding to https on Heroku
