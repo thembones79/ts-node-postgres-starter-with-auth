@@ -14,12 +14,11 @@ import { NotFoundError } from "./errors";
 const corsOptions = {
   origin: keys.CLIENT_ORIGIN,
   credentials: true,
-  httpOnly: false,
-  domain: "riverdi-test.vercel.app",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
 const app = express();
+app.set("trust proxy", 1);
 app.set("trust proxy", true);
 app.use(morgan("combined"));
 app.use(helmet());
@@ -40,6 +39,8 @@ app.use(
   cookieSession({
     signed: false,
     secure: process.env.NODE_ENV === "production",
+    httpOnly: false,
+    domain: "riverdi-test.vercel.app",
   })
 );
 app.use(currentUser);
