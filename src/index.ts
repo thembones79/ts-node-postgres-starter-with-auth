@@ -20,15 +20,16 @@ const start = async () => {
   //    console.error(error);
   //  }
 
-  //const PORT = process.env.PORT || 3090;
-  //  app.listen(process.env.PORT || 3090, () => {
-  //    console.info(`Listening on port ${process.env.PORT} or 3090...`);
-  //  });
-  if (process.env.PORT) {
-    app.listen(parseInt(process.env.PORT), "0.0.0.0", 511);
-  } else {
-    console.warn("No PORT defined");
-  }
+  const PORT = process.env.PORT || 3090;
+  app.listen(PORT, () => {
+    console.info(`Listening on port ${PORT}...`);
+  });
+
+  //  if (process.env.PORT) {
+  //    app.listen(parseInt(process.env.PORT), "0.0.0.0", 511);
+  //  } else {
+  //    console.warn("No PORT defined");
+  //  }
 };
 
 start();
