@@ -21,7 +21,7 @@ const start = async () => {
 
   const PORT = process.env.PORT || 3090;
   app.listen(PORT, () => {
-    console.info(`Listening on port ${PORT}!`);
+    console.info(`Listening on port ${PORT}...`);
   });
 };
 
