@@ -38,7 +38,7 @@ app.enable("trust proxy");
 app.use(
   cookieSession({
     signed: false,
-    secure: process.env.NODE_ENV === "production",
+    secure: false,
     httpOnly: false,
     secureProxy: true,
     //  domain: "riverdi-test.vercel.app",
