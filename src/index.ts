@@ -3,7 +3,6 @@ import { pool } from "./pool";
 import { keys } from "./config/keys";
 
 const { PGHOST, PGPORT, PGDATABASE, PGUSER, PGPASSWORD } = keys;
-console.log("hello");
 
 const startDB = async () => {
   try {

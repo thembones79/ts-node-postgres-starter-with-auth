@@ -25,17 +25,7 @@ app.set("trust proxy", true);
 app.use(morgan("combined"));
 app.use(helmet());
 app.use(cors(corsOptions));
-console.log({ corsOptions });
 app.use(json({ type: "*/*" }));
-
-// force forwarding to https on Heroku
-// if (isOnProduction) {
-//   app.use((req, res, next) => {
-//     if (req.header("x-forwarded-proto") !== "https")
-//       res.redirect(`https://${req.header("host")}${req.url}`);
-//     else next();
-//   });
-// }
 app.enable("trust proxy");
 app.use(
   cookieSession({
