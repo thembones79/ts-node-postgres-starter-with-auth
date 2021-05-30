@@ -18,7 +18,6 @@ const corsOptions = {
 };
 
 const app = express();
-app.set("trust proxy", 1);
 app.set("trust proxy", true);
 app.use(morgan("combined"));
 app.use(helmet());
@@ -27,13 +26,14 @@ console.log({ corsOptions });
 app.use(json({ type: "*/*" }));
 
 // force forwarding to https on Heroku
-if (process.env.NODE_ENV === "production") {
-  app.use((req, res, next) => {
-    if (req.header("x-forwarded-proto") !== "https")
-      res.redirect(`https://${req.header("host")}${req.url}`);
-    else next();
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use((req, res, next) => {
+//     if (req.header("x-forwarded-proto") !== "https")
+//       res.redirect(`https://${req.header("host")}${req.url}`);
+//     else next();
+//   });
+// }
+
 app.enable("trust proxy");
 app.use(
   cookieSession({
