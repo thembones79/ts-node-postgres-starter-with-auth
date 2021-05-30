@@ -40,7 +40,8 @@ app.use(
     signed: false,
     secure: process.env.NODE_ENV === "production",
     httpOnly: false,
-    domain: "riverdi-test.vercel.app",
+    secureProxy: true,
+    //  domain: "riverdi-test.vercel.app",
   })
 );
 app.use(currentUser);
