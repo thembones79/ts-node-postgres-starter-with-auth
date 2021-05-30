@@ -11,6 +11,8 @@ import { errorHandler, currentUser } from "./middlewares";
 import { keys } from "./config/keys";
 import { NotFoundError } from "./errors";
 
+const isOnProduction = process.env.NODE_ENV === "production";
+
 const corsOptions = {
   origin: keys.CLIENT_ORIGIN,
   credentials: true,
@@ -18,6 +20,7 @@ const corsOptions = {
 };
 
 const app = express();
+
 app.set("trust proxy", true);
 app.use(morgan("combined"));
 app.use(helmet());
@@ -26,22 +29,20 @@ console.log({ corsOptions });
 app.use(json({ type: "*/*" }));
 
 // force forwarding to https on Heroku
-// if (process.env.NODE_ENV === "production") {
+// if (isOnProduction) {
 //   app.use((req, res, next) => {
 //     if (req.header("x-forwarded-proto") !== "https")
 //       res.redirect(`https://${req.header("host")}${req.url}`);
 //     else next();
 //   });
 // }
-
 app.enable("trust proxy");
 app.use(
   cookieSession({
     signed: false,
-    secure: true,
+    secure: isOnProduction,
     httpOnly: false,
-    sameSite: "none",
-    //  domain: "riverdi-test.vercel.app",
+    sameSite: isOnProduction ? "none" : false,
   })
 );
 app.use(currentUser);
