@@ -40,7 +40,7 @@ app.use(
     signed: false,
     secure: false,
     httpOnly: false,
-    secureProxy: true,
+    sameSite: "none",
     //  domain: "riverdi-test.vercel.app",
   })
 );
