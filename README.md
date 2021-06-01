@@ -1,1 +1,1 @@
-# Node.js with Typescript and PostgreSQL (and authetnication) REST API starter
+# Node.js with Typescript and PostgreSQL (and authentication) REST API starter

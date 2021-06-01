@@ -4,7 +4,7 @@ import { keys } from "./config/keys";
 
 const { PGHOST, PGPORT, PGDATABASE, PGUSER, PGPASSWORD } = keys;
 
-const startDB = async () => {
+const start = async () => {
   try {
     await pool.connect({
       host: PGHOST,
@@ -25,4 +25,4 @@ const startDB = async () => {
   });
 };
 
-startDB();
+start();
