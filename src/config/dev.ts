@@ -1,11 +1,11 @@
 import { IKeys } from "./keys";
 
 export const keys: IKeys = {
-  JWT_SECRET: "jnrenernDDFttDRRsfjj3F8588b123",
+  JWT_SECRET: "",
   CLIENT_ORIGIN: "http://localhost:3000",
   PGHOST: "localhost",
   PGPORT: "5432",
-  PGDATABASE: "starter",
+  PGDATABASE: "",
   PGUSER: "michal",
   PGPASSWORD: "",
 };
